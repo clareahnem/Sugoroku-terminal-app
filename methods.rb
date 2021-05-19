@@ -1,4 +1,5 @@
 
+
 def menu_select
     prompt = TTY::Prompt.new
     choices = {"How to Play" => 1, "Play Sugoroku" => 2, "View Randking Board" => 3, "Exit Program" => 4}
@@ -33,3 +34,9 @@ def hold_and_clear_terminal
     system 'clear'
 end
 
+def roll_dice
+    Whirly.start spinner: "bouncingBall", append_newline: false, remove_after_stop: true non_tty: true do 
+        sleep 1.5
+    end
+    puts rand(1..6)    
+end

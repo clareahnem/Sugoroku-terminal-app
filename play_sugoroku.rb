@@ -9,6 +9,7 @@ class Play
         @score = 0
         @board = SugorokuBoard.new
     end
+
     
     def move
         to_move = rand(1..6)

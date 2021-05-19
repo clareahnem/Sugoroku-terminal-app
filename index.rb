@@ -1,6 +1,7 @@
 require_relative "methods"
 require_relative "play_sugoroku"
 require "tty-prompt"
+require "whirly"
 
 
 while true
@@ -22,6 +23,7 @@ case menu_select
         username = gets.chomp.downcase
         username = Play.new(username)
         username.display_score
+        roll_dice
         # until username.position > 32
         #     # keep rolling dice and move across the board until you hit the goal
         # end
