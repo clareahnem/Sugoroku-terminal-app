@@ -19,9 +19,11 @@ case menu_select
         # when user selects "Play Sugoroku"
         hold_and_clear_terminal
         puts "Choose your name:"
-        username = gets.chomp
+        username = gets.chomp.downcase
         username = Play.new(username)
-        
+        until username.position > 32
+            # keep rolling dice and move across the board until you hit the goal
+        end
         back_to_menu_or_exit
     when 3
         # when user selects "View Ranking Board"

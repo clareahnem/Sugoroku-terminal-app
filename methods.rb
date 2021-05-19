@@ -32,3 +32,4 @@ def hold_and_clear_terminal
     sleep(0.5)
     system 'clear'
 end
+
