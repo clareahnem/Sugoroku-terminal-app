@@ -35,7 +35,7 @@ def hold_and_clear_terminal
 end
 
 def roll_dice
-    Whirly.start spinner: "bouncingBall", append_newline: false, remove_after_stop: true non_tty: true do 
+    Whirly.start spinner: "bouncingBall", append_newline: false, remove_after_stop: true, non_tty: true do 
         sleep 1.5
     end
     puts rand(1..6)    
