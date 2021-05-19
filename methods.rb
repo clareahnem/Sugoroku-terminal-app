@@ -6,3 +6,12 @@ def menu_select
 
     menu_output
 end
+
+def exit_program
+    prompt = TTY::Prompt.new
+    quit_choice = prompt.yes?("Are you sure yo want to exit?", convert: :boolean)
+    if quit_choice
+    puts "See you again!"
+    exit
+    end
+end
