@@ -29,14 +29,20 @@ def exit_program
     end
 end
 
-def hold_and_clear_terminal
-    sleep(0.5)
+def hold_and_clear_terminal(time)
+    sleep(time)
     system 'clear'
 end
 
 def roll_dice
-    Whirly.start spinner: "bouncingBall", append_newline: false, remove_after_stop: true, non_tty: true do 
-        sleep 1.5
-    end
+    prompt = TTY::Prompt.new
+    prompt.keypress("Press enter to roll the dice", keys: [:return])
+    # start spinner when enter keyt is pressed
+    spinner = TTY::Spinner.new(frames: ["1", "2", "3", "4", "5", "6"], clear: true)
+    spinner.auto_spin
+    # stop spinner by pressing enter
+    prompt = TTY::Prompt.new
+    prompt.keypress("Press enter to stop dice", keys: [:return])
+    spinner.stop
     rand(1..6)    
 end
