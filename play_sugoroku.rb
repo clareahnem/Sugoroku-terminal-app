@@ -32,5 +32,5 @@ class Play
     end
 end
 
-clare = Play.new("clare")
-clare.display_score
+# clare = Play.new("clare")
+# clare.display_score

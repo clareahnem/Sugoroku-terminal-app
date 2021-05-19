@@ -21,9 +21,10 @@ case menu_select
         puts "Choose your name:"
         username = gets.chomp.downcase
         username = Play.new(username)
-        until username.position > 32
-            # keep rolling dice and move across the board until you hit the goal
-        end
+        username.display_score
+        # until username.position > 32
+        #     # keep rolling dice and move across the board until you hit the goal
+        # end
         back_to_menu_or_exit
     when 3
         # when user selects "View Ranking Board"
