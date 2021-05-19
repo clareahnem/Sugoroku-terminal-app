@@ -12,4 +12,4 @@ gem "rspec", "~> 3.10"
 
 gem "tty-prompt", "~> 0.23.1"
 
-gem "whirly", "~> 0.2.6"
+gem "tty-spinner", "~> 0.9.3"
