@@ -1,4 +1,5 @@
 require_relative "methods"
+require_relative "play_sugoroku"
 require "tty-prompt"
 
 
@@ -8,11 +9,18 @@ puts "Welcome to Command Line Sugoroku"
 
 case menu_select
     when 1 
-        puts "Instruction"
-        exit
+        hold_and_clear_terminal
+        open_instructions
+        puts "\n"
+        back_to_menu_or_exit
+        hold_and_clear_terminal
     when 2
-        puts "Let's Play"
-        exit
+        hold_and_clear_terminal
+        puts "Choose your name:"
+        username = gets.chomp
+        username = Play.new(username)
+        puts username.name
+        back_to_menu_or_exit
     when 3
         puts "Loading ranking board"
         exit

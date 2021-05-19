@@ -1,8 +1,12 @@
-WHAT IS SUGOROKU?
+************************************************
+                WHAT IS SUGOROKU?
+************************************************
 Sugoroku is a Japanese name for Board Game similar to Snake and ladders or a simplified monopoly.
 Usually a multi-player game, it is played by rolling a dice and moving across the board panel the number of steps determined by the die.
 
-HOW TERMINAL SUGOROKU WORKS
+************************************************
+            HOW TERMINAL SUGOROKU WORKS
+************************************************
 When you start playin the game, you will see a sugoroku board displayed on your screen.
 You will roll a dice🎲 and the number that you rolled is the number of steps you can move forward.
 You will either land on;
