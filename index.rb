@@ -9,22 +9,26 @@ puts "Welcome to Command Line Sugoroku"
 
 case menu_select
     when 1 
+        # when user selects "How to play"
         hold_and_clear_terminal
         open_instructions
         puts "\n"
         back_to_menu_or_exit
         hold_and_clear_terminal
     when 2
+        # when user selects "Play Sugoroku"
         hold_and_clear_terminal
         puts "Choose your name:"
         username = gets.chomp
         username = Play.new(username)
-        puts username.name
+        
         back_to_menu_or_exit
     when 3
+        # when user selects "View Ranking Board"
         puts "Loading ranking board"
         exit
     when 4
+        # when user selects "Exit Program"
         exit_program
     else
         "Invalid Input. Please Try Again"
