@@ -2,6 +2,7 @@ require_relative "methods"
 require_relative "play_sugoroku"
 require "tty-prompt"
 require "tty-spinner"
+require "colorize"
 
 
 while true
@@ -20,19 +21,31 @@ case menu_select
         # when user selects "Play Sugoroku"
         hold_and_clear_terminal(0.5)
         puts "Let's start playing!"
-        puts "Choose your name:"
-        username = gets.chomp.downcase
+        # get name from user. raise error if name is empty
+        begin
+            puts "Choose your name:"
+            username = gets.chomp.downcase
+            raise ArgumentError if username.empty? 
+        rescue
+            puts "Name cannot be empty. Please try again"
+            retry
+        end
         username = Play.new(username)
+        # clear terminal and display sugoroku board
+        system 'clear'
+        board = SugorokuBoard.new
+        board.display_position_on_board(username.position)
         # instruct user to roll the dice
         
         until username.position > 32
             # keep rolling dice and move across the board until you hit the goal
-            username.display_score
             puts "your position is #{username.position} and your score is now #{username.score}pts"
             dice = roll_dice
             puts dice
             username.move(dice)
-            hold_and_clear_terminal(2)
+            hold_and_clear_terminal(3)
+            board = SugorokuBoard.new
+            board.display_position_on_board(username.position)
         end
         back_to_menu_or_exit
     when 3

@@ -22,22 +22,26 @@ class SugorokuBoard
     def display_position_on_board(number)
 
         case number
+        when 0
+            @one_to_ten["START"] = "START".colorize(:magenta)
+            display_sugoroku_board
         when 1..10
-            @one_to_ten[number.to_s] = "🐶"
+            @one_to_ten[number.to_s] = "●"
             display_sugoroku_board
         when 11
-            @sugoroku_array[3][number.to_s] = "🐶"
+            @eleven[number.to_s] = "●"
             display_sugoroku_board
         when 12..21
-            @sugoroku_array[5][number.to_s] = "🐶"
+            @twelve_to_twentyone[number.to_s] = "●"
             display_sugoroku_board
         when 22
-            @sugoroku_array[7][number.to_s] = "🐶"
+            @twentytwo[number.to_s] = "●"
             display_sugoroku_board
         when 23..32
-            @sugoroku_array[3][number.to_s] = "🐶"
+            @twentythree_to_goal[number.to_s] = "●"
             display_sugoroku_board
         else
+            @twentythree_to_goal["GOAL"] = "GOAL".colorize(:magenta)
             display_sugoroku_board
         end
     end
@@ -46,4 +50,3 @@ end
 
 # test = SugorokuBoard.new
 # test.display_position_on_board
-
