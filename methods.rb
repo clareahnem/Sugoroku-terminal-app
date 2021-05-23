@@ -53,7 +53,7 @@ def exit_program
     prompt = TTY::Prompt.new
     quit_choice = prompt.yes?("Are you sure you want to exit?", convert: :boolean)
     if quit_choice
-    puts "See you again!"
+    puts "See you again!".colorize(:cyan)
     exit
     end
 end

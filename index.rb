@@ -8,7 +8,7 @@ require "tty-table"
 
 
 while true
-puts "Welcome to Command Line"
+puts "Welcome to Command Line".colorize(:red)
 title_art
 # menu_select
 
