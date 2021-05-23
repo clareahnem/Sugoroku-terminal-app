@@ -57,7 +57,7 @@ class Play
         prompt = TTY::Prompt.new
         save_output = prompt.select("Would you like to submit your score to ranking board?", ["Yes", "No"])
         if save_output == "Yes"
-            File.write('ranking.txt', "#{name} #{score} \n", File.size('ranking.txt'), mode: 'a')
+            File.write('ranking.txt', "#{name}, #{score}\n", File.size('ranking.txt'), mode: 'a')
             sleep(0.5)
             puts "Your score has been successfully submitted!"
         elsif save_output == "no"

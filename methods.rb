@@ -1,8 +1,9 @@
-require "TTY-table"
+
 
 def menu_select
+    hold_and_clear_terminal(0)
     prompt = TTY::Prompt.new
-    choices = {"How to Play" => 1, "Play Sugoroku" => 2, "View Randking Board" => 3, "Exit Program" => 4}
+    choices = {"How to Play" => 1, "Play Sugoroku" => 2, "View Ranking Board" => 3, "Exit Program" => 4}
     menu_output = prompt.select("What would you like to do?", choices, convert: :integer)
 
     menu_output
@@ -21,22 +22,22 @@ def back_to_menu_or_exit
 end
 
 def play_game
-    username = Play.new(username)
+    user = Play.new(username)
         # clear terminal and display sugoroku board
         system 'clear'
         board = SugorokuBoard.new
-        board.display_position_on_board(username.position)
+        board.display_position_on_board(user.position)
         # instruct user to roll the dice
         
-        until username.position > 32
+        until user.position > 32
             # keep rolling dice and move across the board until you hit the goal
-            puts "your position is #{username.position} and your score is now #{username.score}pts"
+            puts "your position is #{user.position} and your score is now #{user.score}pts"
             dice = roll_dice
             puts dice
-            username.move(dice)
+            user.move(dice)
             hold_and_clear_terminal(3)
             board = SugorokuBoard.new
-            board.display_position_on_board(username.position)
+            board.display_position_on_board(user.position)
         end
 end
 
@@ -83,14 +84,14 @@ def roll_dice
     rand(1..6)    
 end
 
-def ranking_to_array
+def display_rankboard
     #convert to hash, sort by score and then return in nested array format
     hash = Hash[File.read('ranking.txt').split("\n").map{|i|i.split(', ')}]
     ranking = hash.map { |k,v| [k, v.to_i]}.sort_by {|key, value| value}.reverse
-    display_scoreboard(ranking)
+    rankboard_table(ranking)
 end
 
-def display_scoreboard(ranking)
+def rankboard_table(ranking)
     
     i = 1
     ranking.each do |one_data|
@@ -102,5 +103,5 @@ def display_scoreboard(ranking)
     puts table.render(:ascii)
 end
 
-ranking_to_array
+
 

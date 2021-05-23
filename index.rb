@@ -3,6 +3,7 @@ require_relative "play_sugoroku"
 require "tty-prompt"
 require "tty-spinner"
 require "colorize"
+require "tty-table"
 
 
 while true
@@ -16,7 +17,6 @@ case menu_select
         open_instructions
         puts "\n"
         back_to_menu_or_exit
-        hold_and_clear_terminal(0.5)
     when 2
         # when user selects "Play Sugoroku"
         hold_and_clear_terminal(0.5)
@@ -36,8 +36,9 @@ case menu_select
         play_again_or_not
     when 3
         # when user selects "View Ranking Board"
-        puts "Loading ranking board"
-        exit
+        hold_and_clear_terminal(0.3)
+        display_rankboard
+        back_to_menu_or_exit
     when 4
         # when user selects "Exit Program"
         exit_program
