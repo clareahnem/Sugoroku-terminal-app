@@ -49,7 +49,8 @@ class Play
     end
 
     def display_score
-        @board.display_position_on_board(@position)
+        current_score_table = TTY::Table.new(["Name", "Position","Score"], [[@name, @position, @score]]) 
+        puts current_score_table.render(:unicode, resize: true, width: 80)
     end
 
     #test ID 13

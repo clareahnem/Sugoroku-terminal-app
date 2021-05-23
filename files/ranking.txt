@@ -8,3 +8,4 @@ Eos, 3600
 Lia, 1400
 dum, 1700
 dum, 2200
+dududuuu, 1800

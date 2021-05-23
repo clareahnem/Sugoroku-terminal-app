@@ -54,12 +54,12 @@ def play_again_or_not
     when "Yes"
         puts "loading new game..."
         hold_and_clear_terminal(1)
-    # when "No, go back to Menu"
-    #     menu_select
+        return true
+
     else
         puts "navigating you back to menu..."
         hold_and_clear_terminal(1)
-        sugoroku_loop_running = false
+        return false
     end
 end
 

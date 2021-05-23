@@ -41,7 +41,7 @@ case menu_select
             
             until user.position > 32
                 # keep rolling dice and move across the board until you hit the goal
-                puts "your position is #{user.position} and your score is now #{user.score}pts"
+                user.display_score
                 dice = roll_dice
                 puts dice
                 user.move(dice)
