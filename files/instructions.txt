@@ -2,18 +2,16 @@
                 WHAT IS SUGOROKU?
 ************************************************
 Sugoroku is a Japanese name for Board Game similar to Snake and ladders or a simplified monopoly.
-Usually a multi-player game, it is played by rolling a dice and moving across the board panel the number of steps determined by the die.
-
+Usually a multi-player game, it is played by rolling a dice and moving across the number of steps determined by the die.
 ************************************************
             HOW TERMINAL SUGOROKU WORKS
 ************************************************
 When you start playin the game, you will see a sugoroku board displayed on your screen.
 You will roll a dice🎲 and the number that you rolled is the number of steps you can move forward.
 You will either land on;
-1) white panel: you will be given 100pts
-2) green panel: you will be given 300pts
-3) red panel: you will be deducted 100pts
-4) blue panel: bonus panel! your point will be multiplied by the number that you roll on the dice. (warning: if your score is negative, landing on the blue panel is DANGEROUS)
-
+    1) standard panel: you will be given 100pts
+    2) green panel: you will be given 300pts
+    3) red panel: you will be deducted 100pts
+    4) blue panel: bonus panel! your point will be multiplied by the number that you roll on the dice. (warning: if your score is negative, landing on the blue panel is DANGEROUS)
 The aim is to reach the goal with the highest number of points.
 Your score entirely relies upon luck, so...GOOD LUCK!

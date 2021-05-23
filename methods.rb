@@ -27,25 +27,25 @@ def back_to_menu_or_exit
     end
 end
 
-def play_game
-    user = Play.new(username)
-        # clear terminal and display sugoroku board
-        system 'clear'
-        board = SugorokuBoard.new
-        board.display_position_on_board(user.position)
-        # instruct user to roll the dice
+# def play_game
+#     # user = Play.new(username)
+#         # clear terminal and display sugoroku board
+#         system 'clear'
+#         board = SugorokuBoard.new
+#         board.display_position_on_board(user.position)
+#         # instruct user to roll the dice
         
-        until user.position > 32
-            # keep rolling dice and move across the board until you hit the goal
-            puts "your position is #{user.position} and your score is now #{user.score}pts"
-            dice = roll_dice
-            puts dice
-            user.move(dice)
-            hold_and_clear_terminal(3)
-            board = SugorokuBoard.new
-            board.display_position_on_board(user.position)
-        end
-end
+#         until user.position > 32
+#             # keep rolling dice and move across the board until you hit the goal
+#             puts "your position is #{user.position} and your score is now #{user.score}pts"
+#             dice = roll_dice
+#             puts dice
+#             user.move(dice)
+#             hold_and_clear_terminal(3)
+#             board = SugorokuBoard.new
+#             board.display_position_on_board(user.position)
+#         end
+# end
 
 def play_again_or_not
     prompt = TTY::Prompt.new
@@ -54,12 +54,12 @@ def play_again_or_not
     when "Yes"
         puts "loading new game..."
         hold_and_clear_terminal(1)
-        play_game
     # when "No, go back to Menu"
     #     menu_select
     else
         puts "navigating you back to menu..."
         hold_and_clear_terminal(1)
+        sugoroku_loop_running = false
     end
 end
 
@@ -109,5 +109,15 @@ def rankboard_table(ranking)
     puts table.render(:ascii)
 end
 
-
+def get_name
+    begin
+        puts "Choose your name:"
+        username = gets.chomp.downcase
+        raise ArgumentError if username.empty? 
+    rescue
+        puts "Name cannot be empty. Please try again"
+        retry
+    end
+    return username
+end
 

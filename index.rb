@@ -27,20 +27,31 @@ case menu_select
     when 2
         # when user selects "Play Sugoroku"
         hold_and_clear_terminal(0.5)
-        puts "Let's start playing!"
+        start_title
         # get name from user. raise error if name is empty
-        begin
-            puts "Choose your name:"
-            username = gets.chomp.downcase
-            raise ArgumentError if username.empty? 
-        rescue
-            puts "Name cannot be empty. Please try again"
-            retry
+        username = get_name
+
+        sugoroku_loop_running = true
+        while sugoroku_loop_running
+            user = Play.new(username)
+            system 'clear'
+            board = SugorokuBoard.new
+            board.display_position_on_board(user.position)
+            # instruct user to roll the dice
+            
+            until user.position > 32
+                # keep rolling dice and move across the board until you hit the goal
+                puts "your position is #{user.position} and your score is now #{user.score}pts"
+                dice = roll_dice
+                puts dice
+                user.move(dice)
+                hold_and_clear_terminal(1.8)
+                board = SugorokuBoard.new
+                board.display_position_on_board(user.position)
+            end
+            #after game is done, as if they want to play again or go back to menu
+            sugoroku_loop_running = play_again_or_not
         end
-        
-        play_game
-        #after game is done, as if they want to play again or go back to menu
-        play_again_or_not
         hold_and_clear_terminal(0.3)
     when 3
         # when user selects "View Ranking Board"
