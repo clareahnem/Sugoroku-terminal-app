@@ -1,25 +1,8 @@
 require_relative "board"
 
-scores_hash = {
-    "test1" => 100,
-    "test2" => -300,
-    "test3" => 700,
-    "test4" => 800,
-    "test5" => 7900,
-    "test6" => 1000,
-}
-
 class Play
     attr_accessor :name
-    attr_reader :position, :score 
-    # scores_hash = {
-    #         "test1" => 100,
-    #         "test2" => -300,
-    #         "test3" => 700,
-    #         "test4" => 800,
-    #         "test5" => 7900,
-    #         "test6" => 1000,
-    #         }
+    attr_reader :position, :score
 
     def initialize(name)
         @name = name
@@ -77,12 +60,9 @@ class Play
             File.write('ranking.txt', "#{name} #{score} \n", File.size('ranking.txt'), mode: 'a')
             sleep(0.5)
             puts "Your score has been successfully submitted!"
+        elsif save_output == "no"
+            puts "alright. navigating you back to menu..."
+            hold_and_clear_terminal(1)
         end
-
     end
-    
-
 end
-
-# clare = Play.new("clare")
-# clare.display_score

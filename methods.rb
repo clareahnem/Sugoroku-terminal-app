@@ -20,6 +20,42 @@ def back_to_menu_or_exit
     end
 end
 
+def play_game
+    username = Play.new(username)
+        # clear terminal and display sugoroku board
+        system 'clear'
+        board = SugorokuBoard.new
+        board.display_position_on_board(username.position)
+        # instruct user to roll the dice
+        
+        until username.position > 32
+            # keep rolling dice and move across the board until you hit the goal
+            puts "your position is #{username.position} and your score is now #{username.score}pts"
+            dice = roll_dice
+            puts dice
+            username.move(dice)
+            hold_and_clear_terminal(3)
+            board = SugorokuBoard.new
+            board.display_position_on_board(username.position)
+        end
+end
+
+def play_again_or_not
+    prompt = TTY::Prompt.new
+    output = prompt.select("Do you want to play again?", ["Yes", "No, go back to Menu"])
+    case output
+    when "Yes"
+        puts "loading new game..."
+        hold_and_clear_terminal(1)
+        play_game
+    # when "No, go back to Menu"
+    #     menu_select
+    else
+        puts "navigating you back to menu..."
+        hold_and_clear_terminal(1)
+    end
+end
+
 def exit_program
     prompt = TTY::Prompt.new
     quit_choice = prompt.yes?("Are you sure you want to exit?", convert: :boolean)

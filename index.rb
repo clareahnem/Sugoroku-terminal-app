@@ -30,24 +30,10 @@ case menu_select
             puts "Name cannot be empty. Please try again"
             retry
         end
-        username = Play.new(username)
-        # clear terminal and display sugoroku board
-        system 'clear'
-        board = SugorokuBoard.new
-        board.display_position_on_board(username.position)
-        # instruct user to roll the dice
         
-        until username.position > 32
-            # keep rolling dice and move across the board until you hit the goal
-            puts "your position is #{username.position} and your score is now #{username.score}pts"
-            dice = roll_dice
-            puts dice
-            username.move(dice)
-            hold_and_clear_terminal(3)
-            board = SugorokuBoard.new
-            board.display_position_on_board(username.position)
-        end
-        back_to_menu_or_exit
+        play_game
+        #after game is done, as if they want to play again or go back to menu
+        play_again_or_not
     when 3
         # when user selects "View Ranking Board"
         puts "Loading ranking board"
