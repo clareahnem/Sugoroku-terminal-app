@@ -1,12 +1,13 @@
+require "colorize"
 
 def flash_text(text)
-    3.times do
-    print "\r#{ text }"
+    4.times do
+    print "\r#{ ' ' * text.size }"
     sleep 0.3
-    print "\r#{ ' ' * text.size }" # Send return and however many spaces are needed.
+    print  "\r#{ text }"# Send return and however many spaces are needed.
     sleep 0.3
     end
-    puts text
+    print "\n"
 end
 
 def menu_select
@@ -67,7 +68,7 @@ def roll_dice
     spinner.auto_spin
     # stop spinner by pressing enter
     prompt = TTY::Prompt.new
-    prompt.keypress("\nPress enter to stop dice", keys: [:return])
+    prompt.keypress("Press enter to stop dice", keys: [:return])
     spinner.stop
     rand(1..6)    
 end
@@ -105,5 +106,4 @@ def get_name
     end
     return username
 end
-
 
