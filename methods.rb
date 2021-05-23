@@ -1,7 +1,13 @@
-
+def flash_text(text)
+    3.times do
+    print "\r#{ text }"
+    sleep 0.3
+    print "\r#{ ' ' * text.size }" # Send return and however many spaces are needed.
+    sleep 0.3
+    end
+end
 
 def menu_select
-    hold_and_clear_terminal(0)
     prompt = TTY::Prompt.new
     choices = {"How to Play" => 1, "Play Sugoroku" => 2, "View Ranking Board" => 3, "Exit Program" => 4}
     menu_output = prompt.select("What would you like to do?", choices, convert: :integer)
@@ -10,7 +16,7 @@ def menu_select
 end
 
 def open_instructions
-    File.foreach("files/instructions.txt") { |line| puts line.colorize(:light_yellow) }
+    File.foreach("files/instructions.txt") { |line| puts line }
 end
 
 def back_to_menu_or_exit
