@@ -10,7 +10,7 @@ class Play
         @score = 0
     end
 
-    
+    # test ID 7
     def move(number)
         @position += number
         if @position < 32
@@ -61,7 +61,7 @@ class Play
 
     def display_score
         current_score_table = TTY::Table.new(["Name", "Position","Score"], [[@name, @position, @score]]) 
-        puts current_score_table.render(:unicode, resize: true, width: 80)
+        puts current_score_table.render(:unicode, resize: true, width: 50)
     end
 
     #test ID 13
@@ -69,9 +69,15 @@ class Play
         prompt = TTY::Prompt.new
         save_output = prompt.select("Would you like to submit your score to ranking board?", ["Yes", "No"])
         if save_output == "Yes"
+            # test ID 16
+            begin
             File.write('files/ranking.txt', "#{name}, #{score}\n", File.size('files/ranking.txt'), mode: 'a')
-            sleep(0.5)
-            puts "Your score has been successfully submitted!"
+            rescue
+                puts "Error loading file. Your score could not be added."
+            else
+                sleep(0.5)
+                puts "Your score has been successfully submitted!"
+            end
         elsif save_output == "no"
             puts "alright. navigating you back to menu..."
             hold_and_clear_terminal(1)

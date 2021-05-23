@@ -1,5 +1,6 @@
 require "colorize"
 
+#test ID 14
 def flash_text(text)
     4.times do
     print "\r#{ ' ' * text.size }"
@@ -18,10 +19,12 @@ def menu_select
     menu_output
 end
 
+#test ID 1
 def open_instructions
     File.foreach("files/instructions.txt") { |line| puts line }
 end
 
+#test ID 2
 def back_to_menu_or_exit
     prompt = TTY::Prompt.new
     instruction_output = prompt.select("Do you want to go back to Menu?", ["Yes", "No, Exit Program"])
@@ -64,6 +67,7 @@ def roll_dice
     prompt = TTY::Prompt.new
     prompt.keypress("Press enter to roll the dice", keys: [:return])
     # start spinner when enter keyt is pressed
+    # test ID 6
     spinner = TTY::Spinner.new(frames: ["1", "2", "3", "4", "5", "6"], clear: true)
     spinner.auto_spin
     # stop spinner by pressing enter
@@ -75,9 +79,13 @@ end
 
 def display_rankboard
     #convert to hash, sort by score and then return in nested array format
+    begin
     hash = Hash[File.read('files/ranking.txt').split("\n").map{|i|i.split(', ')}]
     ranking = hash.map { |k,v| [k, v.to_i]}.sort_by {|key, value| value}.reverse
     rankboard_table(ranking)
+    rescue
+        puts "failed to load file"
+    end
 end
 
 def rankboard_table(ranking)

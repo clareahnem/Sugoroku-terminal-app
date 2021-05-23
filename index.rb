@@ -33,6 +33,7 @@ case menu_select
 
         sugoroku_loop_running = true
         while sugoroku_loop_running
+            # test ID 3
             user = Play.new(username)
             system 'clear'
             board = SugorokuBoard.new

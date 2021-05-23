@@ -1,49 +1,8 @@
 require "tty-table"
 require "colorize"
 
-scoreboard = {
-    "test1" => 100,
-    "test2" => -300,
-    "test3" => 700,
-    "test4" => 800,
-    "test5" => 7900,
-    "test6" => 1000,
-}
+one_to_ten = "|   1  |   2  |   #{"3".colorize(:green)}  |   #{"4".colorize(:red)}  |   5  |   #{"6".colorize(:green)}  |   7  |   8  |   #{"9".colorize(:blue)}  |  10  |"
+twelve_to_twentyone = "     |  #{"21".colorize(:green)}  |  #{"20".colorize(:red)}  |  19  |  #{"18".colorize(:green)}  |  #{"17".colorize(:red)}  |  #{"16".colorize(:blue)}  |  15  |  #{"14".colorize(:red)}  |  13  |  12  |"
 
-scoreboard.store("test7", 700)
-
-ranking = scoreboard.sort_by {|key, value| value}.reverse
-
-pp ranking
-
-# table = TTY::Table.new(["Rank", "Name", "Score"], ["a", "b", "c"])
-# i = 1
-# ranking.each do |one_data|
-#     one_data.unshift i
-#     i += 1
-# end
-
-# pp ranking
-
-# puts table.render(:acsii)
-
-
-# i = 1
-# ranking.each do |key, value|
-#     case i
-#     when 1
-#         puts "1st: #{key}, #{value}pts"
-#     when 2
-#         puts "2nd: #{key}, #{value}pts"
-#     when 3
-#         puts "3rd: #{key}, #{value}pts"
-#     else
-#         puts "#{i}th: #{key}, #{value}pts"
-#     end
-#     i += 1
-# end
-
-#teat ID 12-2
-# table = TTY::Table.new(["Rank","Name","Score"], ranking)
-# puts table.render(:ascii)
-pp String.color_samples   
+puts one_to_ten.sub("3", "●")
+puts twelve_to_twentyone.sub("16", "●")

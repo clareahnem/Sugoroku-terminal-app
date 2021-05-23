@@ -12,6 +12,7 @@ class SugorokuBoard
         @twentythree_to_goal = "     |  #{"23".colorize(:red)}  |  24  |  25  |  #{"26".colorize(:green)}  |  #{"27".colorize(:green)}  |  28  |  #{"29".colorize(:red)}  |  30  |  #{"31".colorize(:blue)}  |  #{"32".colorize(:green)}  | GOAL"
     end
 
+    # test ID 4
     def display_sugoroku_board
         @sugoroku_array = [@vertical_border, @one_to_ten, @vertical_border, @eleven, @vertical_border, @twelve_to_twentyone, @vertical_border, @twentytwo, @vertical_border, @twentythree_to_goal, @vertical_border]
         @sugoroku_array.each do |line|
@@ -19,6 +20,7 @@ class SugorokuBoard
         end
     end
 
+    #test ID The 15
     def display_position_on_board(number)
 
         case number
