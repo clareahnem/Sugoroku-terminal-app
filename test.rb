@@ -1,4 +1,5 @@
 require "tty-table"
+require "colorize"
 
 scoreboard = {
     "test1" => 100,
@@ -45,3 +46,4 @@ pp ranking
 #teat ID 12-2
 # table = TTY::Table.new(["Rank","Name","Score"], ranking)
 # puts table.render(:ascii)
+pp String.color_samples   

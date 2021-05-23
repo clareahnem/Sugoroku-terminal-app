@@ -10,7 +10,7 @@ def menu_select
 end
 
 def open_instructions
-    File.foreach("./instructions.txt") { |line| puts line }
+    File.foreach("files/instructions.txt") { |line| puts line.colorize(:light_yellow) }
 end
 
 def back_to_menu_or_exit
@@ -86,7 +86,7 @@ end
 
 def display_rankboard
     #convert to hash, sort by score and then return in nested array format
-    hash = Hash[File.read('ranking.txt').split("\n").map{|i|i.split(', ')}]
+    hash = Hash[File.read('files/ranking.txt').split("\n").map{|i|i.split(', ')}]
     ranking = hash.map { |k,v| [k, v.to_i]}.sort_by {|key, value| value}.reverse
     rankboard_table(ranking)
 end
