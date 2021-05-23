@@ -16,13 +16,13 @@ ranking = scoreboard.sort_by {|key, value| value}.reverse
 pp ranking
 
 # table = TTY::Table.new(["Rank", "Name", "Score"], ["a", "b", "c"])
-i = 1
-ranking.each do |one_data|
-    one_data.unshift i
-    i += 1
-end
+# i = 1
+# ranking.each do |one_data|
+#     one_data.unshift i
+#     i += 1
+# end
 
-pp ranking
+# pp ranking
 
 # puts table.render(:acsii)
 
@@ -43,5 +43,5 @@ pp ranking
 # end
 
 #teat ID 12-2
-table = TTY::Table.new(["Rank","Name","Score"], ranking)
-puts table.render(:ascii)
+# table = TTY::Table.new(["Rank","Name","Score"], ranking)
+# puts table.render(:ascii)

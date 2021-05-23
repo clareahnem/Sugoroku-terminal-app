@@ -1,7 +1,5 @@
-oversensitive 3900 
-uwu 300 
-tryingit out -600 
-secondchaaance 700 
-clare 1300 
- 1000 
- 1100 
+oversensitive, 3900
+uwu, 300
+tryingit out, -600
+secondchaaance, 700
+clare, 1300

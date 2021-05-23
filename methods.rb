@@ -1,4 +1,4 @@
-
+require "TTY-table"
 
 def menu_select
     prompt = TTY::Prompt.new
@@ -82,3 +82,25 @@ def roll_dice
     spinner.stop
     rand(1..6)    
 end
+
+def ranking_to_array
+    #convert to hash, sort by score and then return in nested array format
+    hash = Hash[File.read('ranking.txt').split("\n").map{|i|i.split(', ')}]
+    ranking = hash.map { |k,v| [k, v.to_i]}.sort_by {|key, value| value}.reverse
+    display_scoreboard(ranking)
+end
+
+def display_scoreboard(ranking)
+    
+    i = 1
+    ranking.each do |one_data|
+    one_data.unshift i
+    i += 1
+    end
+
+    table = TTY::Table.new(["Rank","Name","Score"], ranking)
+    puts table.render(:ascii)
+end
+
+ranking_to_array
+
