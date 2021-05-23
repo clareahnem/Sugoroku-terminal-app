@@ -37,10 +37,9 @@ case menu_select
             system 'clear'
             board = SugorokuBoard.new
             board.display_position_on_board(user.position)
-            # instruct user to roll the dice
-            
+
+            # keep rolling dice and move across the board until you hit the goal
             until user.position > 32
-                # keep rolling dice and move across the board until you hit the goal
                 user.display_score
                 dice = roll_dice
                 puts dice
@@ -49,7 +48,7 @@ case menu_select
                 board = SugorokuBoard.new
                 board.display_position_on_board(user.position)
             end
-            #after game is done, as if they want to play again or go back to menu
+            #after game is done, as if they want to play again or go back to menu. play_again_or_not returns true or false
             sugoroku_loop_running = play_again_or_not
         end
         hold_and_clear_terminal(0.3)

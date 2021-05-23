@@ -1,3 +1,4 @@
+
 def flash_text(text)
     3.times do
     print "\r#{ text }"
@@ -5,6 +6,7 @@ def flash_text(text)
     print "\r#{ ' ' * text.size }" # Send return and however many spaces are needed.
     sleep 0.3
     end
+    puts text
 end
 
 def menu_select
@@ -27,25 +29,6 @@ def back_to_menu_or_exit
     end
 end
 
-# def play_game
-#     # user = Play.new(username)
-#         # clear terminal and display sugoroku board
-#         system 'clear'
-#         board = SugorokuBoard.new
-#         board.display_position_on_board(user.position)
-#         # instruct user to roll the dice
-        
-#         until user.position > 32
-#             # keep rolling dice and move across the board until you hit the goal
-#             puts "your position is #{user.position} and your score is now #{user.score}pts"
-#             dice = roll_dice
-#             puts dice
-#             user.move(dice)
-#             hold_and_clear_terminal(3)
-#             board = SugorokuBoard.new
-#             board.display_position_on_board(user.position)
-#         end
-# end
 
 def play_again_or_not
     prompt = TTY::Prompt.new
@@ -55,7 +38,6 @@ def play_again_or_not
         puts "loading new game..."
         hold_and_clear_terminal(1)
         return true
-
     else
         puts "navigating you back to menu..."
         hold_and_clear_terminal(1)
@@ -85,7 +67,7 @@ def roll_dice
     spinner.auto_spin
     # stop spinner by pressing enter
     prompt = TTY::Prompt.new
-    prompt.keypress("Press enter to stop dice", keys: [:return])
+    prompt.keypress("\nPress enter to stop dice", keys: [:return])
     spinner.stop
     rand(1..6)    
 end
@@ -101,18 +83,21 @@ def rankboard_table(ranking)
     
     i = 1
     ranking.each do |one_data|
-    one_data.unshift i
-    i += 1
+        one_data.unshift i
+        i += 1
+        if i == 100
+            break
+        end
     end
 
     table = TTY::Table.new(["Rank","Name","Score"], ranking)
-    puts table.render(:ascii)
+    puts table.render(:unicode)
 end
 
 def get_name
     begin
         puts "Choose your name:"
-        username = gets.chomp.downcase
+        username = gets.chomp
         raise ArgumentError if username.empty? 
     rescue
         puts "Name cannot be empty. Please try again"
@@ -120,4 +105,5 @@ def get_name
     end
     return username
 end
+
 
