@@ -1,4 +1,4 @@
-require "tty-spinner"
+
 #test ID 14
 def flash_text(text)
     4.times do

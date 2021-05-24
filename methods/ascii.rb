@@ -1,4 +1,4 @@
-require "colorize"
+
 def title_art
     puts "███████╗██╗   ██╗ ██████╗  ██████╗ ██████╗  ██████╗ ██╗  ██╗██╗   ██╗".colorize(:light_red)
     puts "██╔════╝██║   ██║██╔════╝ ██╔═══██╗██╔══██╗██╔═══██╗██║ ██╔╝██║   ██║".colorize(:light_yellow)

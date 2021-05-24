@@ -1,4 +1,3 @@
-require_relative "board"
 
 class Play
     attr_accessor :name
