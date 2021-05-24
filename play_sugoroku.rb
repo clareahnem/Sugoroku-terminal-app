@@ -35,7 +35,7 @@ class Play
             elsif @score == 0
                 "You've landed on the blue multiply panel. Since your score is 0, looks like nothing will happen.".colorize(:blue)
             else
-                flash_text("You've landed on a blue panel! Roll the dice to multiply your score!".colorize(:blue))
+                flash_text("WOWW!! You've landed on a blue panel! Roll the dice to multiply your score!".colorize(:blue))
                 bonus_panel
             end
         else
@@ -52,8 +52,10 @@ class Play
     def bonus_panel
         dice = roll_dice
         if dice == 1
+            puts dice
             puts "No change made to your score"
         else
+            puts dice
             puts "Your score multiplies by #{dice}!".colorize(:blue)
         end
         @score *= dice

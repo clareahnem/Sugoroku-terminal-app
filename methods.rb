@@ -1,4 +1,3 @@
-require "colorize"
 
 #test ID 14
 def flash_text(text)
@@ -65,14 +64,14 @@ end
 
 def roll_dice
     prompt = TTY::Prompt.new
-    prompt.keypress("Press enter to roll the dice", keys: [:return])
+    prompt.keypress("Press enter to roll the dice and enter again to stop", keys: [:return])
     # start spinner when enter keyt is pressed
     # test ID 6
     spinner = TTY::Spinner.new(frames: ["1", "2", "3", "4", "5", "6"], clear: true)
     spinner.auto_spin
     # stop spinner by pressing enter
     prompt = TTY::Prompt.new
-    prompt.keypress("Press enter to stop dice", keys: [:return])
+    prompt.keypress(keys: [:return])
     spinner.stop
     rand(1..6)    
 end
