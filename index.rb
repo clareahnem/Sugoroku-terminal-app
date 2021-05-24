@@ -37,21 +37,13 @@ case menu_select
         sugoroku_loop_running = true
         while sugoroku_loop_running
             # test ID 3
+            # initialise new game and scoreboard
             user = Play.new(username)
             system 'clear'
             board = SugorokuBoard.new
             board.display_position_on_board(user.position)
-
             # keep rolling dice and move across the board until you hit the goal
-            until user.position > 32
-                user.display_score
-                dice = roll_dice
-                puts dice
-                user.move(dice)
-                hold_and_clear_terminal(1.8)
-                board = SugorokuBoard.new
-                board.display_position_on_board(user.position)
-            end
+            play_til_goal(user)
             #after game is done, as if they want to play again or go back to menu. play_again_or_not returns true or false
             sugoroku_loop_running = play_again_or_not
         end

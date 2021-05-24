@@ -129,4 +129,15 @@ def loading_spinner(time, message)
     spinner.stop(message) 
 end
 
+def play_til_goal(player)
+    until player.position > 32
+        player.display_score
+        dice = roll_dice
+        puts dice
+        player.move(dice)
+        hold_and_clear_terminal(1.8)
+        board = SugorokuBoard.new
+        board.display_position_on_board(player.position)
+    end
+end
 
