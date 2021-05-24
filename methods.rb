@@ -2,10 +2,10 @@
 #test ID 14
 def flash_text(text)
     4.times do
-    print "\r#{ ' ' * text.size }"
-    sleep 0.3
-    print  "\r#{ text }"# Send return and however many spaces are needed.
-    sleep 0.3
+        print "\r#{ ' ' * text.size }"
+        sleep 0.3
+        print  "\r#{ text }"
+        sleep 0.3
     end
     print "\n"
 end
@@ -52,7 +52,8 @@ def exit_program
     prompt = TTY::Prompt.new
     quit_choice = prompt.yes?("Are you sure you want to exit?", convert: :boolean)
     if quit_choice
-    puts "See you again!".colorize(:cyan)
+    hold_and_clear_terminal(0)
+    byebye
     exit
     end
 end
@@ -77,13 +78,15 @@ def roll_dice
 end
 
 def display_rankboard
-    #convert to hash, sort by score and then return in nested array format
+    #convert file data to hash, sort by score and then return in nested array format
     begin
     hash = Hash[File.read('files/ranking.txt').split("\n").map{|i|i.split(', ')}]
-    ranking = hash.map { |k,v| [k, v.to_i]}.sort_by {|key, value| value}.reverse
-    rankboard_table(ranking)
     rescue
         puts "failed to load file"
+    else 
+        ranking = hash.map { |k,v| [k, v.to_i]}.sort_by {|key, value| value}.reverse
+        # then convert this data into tty table
+        rankboard_table(ranking)
     end
 end
 

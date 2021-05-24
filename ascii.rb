@@ -35,3 +35,13 @@ def start_title
     puts "╚══════╝╚══════╝   ╚═╝   ╚══════╝    ╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝".colorize(:light_green)                                                                         
 
 end
+
+def byebye
+    puts "██████╗ ██╗   ██╗███████╗██████╗ ██╗   ██╗███████╗    ██╗".colorize(:light_black)
+    puts "██╔══██╗╚██╗ ██╔╝██╔════╝██╔══██╗╚██╗ ██╔╝██╔════╝██╗██╔╝".colorize(:light_black)
+    puts "██████╔╝ ╚████╔╝ █████╗  ██████╔╝ ╚████╔╝ █████╗  ╚═╝██║".colorize(:light_black)
+    puts "██╔══██╗  ╚██╔╝  ██╔══╝  ██╔══██╗  ╚██╔╝  ██╔══╝  ██╗██║".colorize(:light_black)
+    puts "██████╔╝   ██║   ███████╗██████╔╝   ██║   ███████╗╚═╝╚██╗".colorize(:light_black)
+    puts "╚═════╝    ╚═╝   ╚══════╝╚═════╝    ╚═╝   ╚══════╝    ╚═╝".colorize(:light_black)
+                                                         
+end
