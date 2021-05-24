@@ -13,7 +13,7 @@ class Play
     def move(number)
         @position += number
         if @position < 32
-            puts "You moved to panel #{@position}"
+            puts "You moved #{number} steps forward"
         end
         sleep(1)
         landed_on_which_panel(@position)
@@ -61,7 +61,7 @@ class Play
     end
 
     def display_score
-        current_score_table = TTY::Table.new(["Name", "Position","Score"], [[@name, @position, @score]]) 
+        current_score_table = TTY::Table.new(["Name", "Total Steps Taken","Current Score"], [[@name, "#{@position}/33", @score]]) 
         puts current_score_table.render(:unicode, resize: true, width: 50)
     end
 

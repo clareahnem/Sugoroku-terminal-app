@@ -16,3 +16,4 @@ Wee, 1000
 Pommy, 1200
 letitworkkk, 900
 Clare, 600
+clare, 1300
