@@ -32,6 +32,7 @@ case menu_select
         start_title
         # get name from user. raise error if name is empty
         username = get_name
+        loading_spinner(1.5, "")
 
         sugoroku_loop_running = true
         while sugoroku_loop_running
@@ -57,8 +58,9 @@ case menu_select
         hold_and_clear_terminal(0.3)
     when 3
         # when user selects "View Ranking Board"
+        loading_spinner(1.5, "")
+        hold_and_clear_terminal(0)
         # display ranking title
-        hold_and_clear_terminal(0.3)
         ranking_title
         # and display ranking board
         display_rankboard

@@ -12,3 +12,4 @@ Indiana Jones, 1500
 Marco, 1000
 Woopwoop, 8600
 Yaya, 3100
+Wee, 1000
