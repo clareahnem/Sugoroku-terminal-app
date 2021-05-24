@@ -20,7 +20,11 @@ end
 
 #test ID 1
 def open_instructions
+    begin
     File.foreach("files/instructions.txt") { |line| puts line }
+    rescue
+        puts "could not find the file".coloirize(:red)
+    end
 end
 
 #test ID 2
@@ -38,8 +42,9 @@ def play_again_or_not
     output = prompt.select("Do you want to play again?", ["Yes", "No, go back to Menu"])
     case output
     when "Yes"
-        puts "loading new game..."
-        hold_and_clear_terminal(1)
+        print "loading new game..."
+        loading_spinner(1, "")
+        hold_and_clear_terminal(0)
         return true
     else
         puts "navigating you back to menu..."
