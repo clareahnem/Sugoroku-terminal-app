@@ -1,4 +1,4 @@
-
+require "tty-spinner"
 #test ID 14
 def flash_text(text)
     4.times do
@@ -116,4 +116,12 @@ def get_name
     end
     return username
 end
+
+def loading_spinner(time, message)
+    spinner = TTY::Spinner.new(":spinner", format: :bouncing_ball)
+    spinner.auto_spin 
+    sleep(time) 
+    spinner.stop(message) 
+end
+
 

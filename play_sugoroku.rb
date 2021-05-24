@@ -75,14 +75,13 @@ class Play
             begin
             File.write('files/ranking.txt', "#{name}, #{score}\n", File.size('files/ranking.txt'), mode: 'a')
             rescue
-                puts "Error loading file. Your score could not be added."
+                loading_spinner(2, "Error loading file. Your score could not be added.")
             else
-                sleep(0.5)
-                puts "Your score has been successfully submitted!"
+                loading_spinner(2, "Your score has been successfully submitted.")
             end
         elsif save_output == "no"
             puts "alright. navigating you back to menu..."
-            hold_and_clear_terminal(1)
+            hold_and_clear_terminal(0.7)
         end
     end
 end

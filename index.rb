@@ -8,6 +8,8 @@ require "tty-table"
 
 
 while true
+loading_spinner(1.5, "")
+hold_and_clear_terminal(0)
 puts "Welcome to Command Line".colorize(:red)
 title_art
 # menu_select

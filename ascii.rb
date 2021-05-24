@@ -42,6 +42,5 @@ def byebye
     puts "██████╔╝ ╚████╔╝ █████╗  ██████╔╝ ╚████╔╝ █████╗  ╚═╝██║".colorize(:light_black)
     puts "██╔══██╗  ╚██╔╝  ██╔══╝  ██╔══██╗  ╚██╔╝  ██╔══╝  ██╗██║".colorize(:light_black)
     puts "██████╔╝   ██║   ███████╗██████╔╝   ██║   ███████╗╚═╝╚██╗".colorize(:light_black)
-    puts "╚═════╝    ╚═╝   ╚══════╝╚═════╝    ╚═╝   ╚══════╝    ╚═╝".colorize(:light_black)
-                                                         
+    puts "╚═════╝    ╚═╝   ╚══════╝╚═════╝    ╚═╝   ╚══════╝    ╚═╝".colorize(:light_black)                                                    
 end
