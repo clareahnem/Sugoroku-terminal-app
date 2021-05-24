@@ -1,6 +1,7 @@
 require_relative "methods"
 require_relative "play_sugoroku"
 require_relative "ascii"
+require_relative "command_line_args"
 require "tty-prompt"
 require "tty-spinner"
 require "colorize"

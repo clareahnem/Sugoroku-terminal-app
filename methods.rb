@@ -129,6 +129,7 @@ def loading_spinner(time, message)
     spinner.stop(message) 
 end
 
+#test ID 17
 def play_til_goal(player)
     until player.position > 32
         player.display_score
