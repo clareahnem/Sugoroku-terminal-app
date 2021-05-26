@@ -41,21 +41,21 @@ class SugorokuBoard
             @one_to_ten[0] = "   💃|" 
             display_sugoroku_board
         when 1..10
-            @one_to_ten[number] = "  💃  |"
+            @one_to_ten[number] = "  💃 |"
             display_sugoroku_board
         when 11
-            @eleven[1] = "  💃  |"
+            @eleven[1] = "  💃 |"
             display_sugoroku_board
         when 12..21
             index = (number - 11) * -1
-            @twelve_to_twentyone[index] = "  💃  |"
+            @twelve_to_twentyone[index] = "  💃 |"
             display_sugoroku_board
         when 22
-            @twentytwo[1] = "  💃  |"
+            @twentytwo[1] = "  💃 |"
             display_sugoroku_board
         when 23..32
             index = number - 22
-            @twentythree_to_goal[index] = "  💃  |"
+            @twentythree_to_goal[index] = "  💃 |"
             display_sugoroku_board
         else
             @twentythree_to_goal[11] = "💃"
