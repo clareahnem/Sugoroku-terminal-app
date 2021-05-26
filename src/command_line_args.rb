@@ -4,8 +4,7 @@ if ARGV.length > 0
     ARGV.clear
     case flag
     when '-help', '--h'
-        system 'clear'
-        puts "\nThis is a Terminal Sugoroku Game Application."
+        puts "This is a Terminal Sugoroku Game Application."
         puts "To load Program, simply run the Terminal_Sugoroku.sh file by typing in './Terminal_Sugoroku.sh' on your terminal."
         puts "PleaseMake sure that you are in the correct directory(folder) when typing the above command"
         puts "This will lead you to the main page with options to read instructions, see top scores and playing Sugoroku Game."
@@ -13,8 +12,8 @@ if ARGV.length > 0
         exit
     when '-info', '--i'
         puts "This application is running on  Ruby Version: #{RUBY_VERSION}"
-        puts "Before starting the Game, you will need to download the Ruby Gem Bundler for this application, which is listed on this app's GITHUB page"
-        puts "Please go to https://github.com/clareahnem/Sugoroku-terminal-app and read through README.md on more detailed instructions on how to install ruby gems required for this Application"
+        puts "Before starting the Game, you will need to have ruby running on your computer and download the Ruby Gem Bundler for this application by typing 'bundle install' on your terminal"
+        puts "Please go to https://github.com/clareahnem/Sugoroku-terminal-app and read through README.md on for more details about ruby gems and bundler"
         exit
     else
         puts "invalid argument."
