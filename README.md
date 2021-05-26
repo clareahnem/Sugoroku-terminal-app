@@ -8,9 +8,19 @@ https://github.com/clareahnem/Sugoroku-terminal-app
 
 To start this application on your computer, please download the zip file from this GitHub repository. All of the files required for the application to run will be stored in src/ directory, hence from your root directory move into the src directory by typing `cd src`. Once you are in the correct directory, type `./Terminal_Sugoroku.sh` on your command line to start the application. 
 
- - steps to install app
- - dependencies required
- - system/hardware requirements
+Since this application was built using Ruby language, you must make sure that you have ruby installed on your computer. You can do so by typing in `ruby -v` on your terminal, or from the `src` directory containing this app type `ruby index.rb -i` to see what version of ruby you are running on. This app was build on ruby version 2.7.1 hence you may run into some issues if you are using a much older version of ruby. 
+
+This application also depends on several ruby gems. If you are a mac user and have ruby installed, you will be able to download ruby gems automatically. However, for any other computer systems make sure that you have RubyGems downloaded, so that you can install the following dependencies. Instructions on how to download RubyGems are listed on the Rubygems website: https://rubygems.org/pages/download
+
+**Users must make sure that you have the following ruby gems installed before running the application;**
+ - colorize version 0.8.1
+ - tty-prompt version 0.23.1
+ - tty-spinner version 0.9.3
+ - tty-table version 0.12.0
+ 
+ If you do not have any one of these gems with the correct versions, please install them using bundler. If you have not used bundler before, make sure you install it first by running the command `install bundler` onto your local computer. You can then install all of the gem dependencies by running `bundle install` command. 
+
+
 ## Software Development Plan
 ### Purpose and scope of this Application
 This is a terminal application for a simple, single player Sugorouku Game created using Ruby programming language. Sugoroku is a Japanese name for a type of board games where players move around a board by rollong the dice. The board panels that players land on will often have tasks or activities that adds entertainment to the game. In most Sugoroku, the goal of the game is to reach the finish line with fewer number of turns or with the highest score.  
