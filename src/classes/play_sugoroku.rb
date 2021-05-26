@@ -102,7 +102,7 @@ class Play
         if save_output == "Yes"
             # test ID 16
             begin
-            File.write('files/ranking.txt', "#{name}, #{score}\n", File.size('files/ranking.txt'), mode: 'a')
+            File.write('./files/ranking.txt', "#{name}, #{score}\n", File.size('./files/ranking.txt'), mode: 'a')
             rescue
                 loading_spinner(2, "Error loading file. Your score could not be added.")
             else
