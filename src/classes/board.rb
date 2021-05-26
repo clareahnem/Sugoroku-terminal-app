@@ -1,4 +1,3 @@
-require "colorize"
 
 
 class SugorokuBoard
@@ -12,6 +11,10 @@ class SugorokuBoard
         @twentythree_to_goal = ["     |", "  ■  |".colorize(:red), "  ■  |", "  ■  |", "  ■  |".colorize(:green), "  ■  |".colorize(:green), "  ■  |", "  ■  |".colorize(:red), "  ■  |", "  ■  |".colorize(:blue), "  ■  |".colorize(:green), "GOAL"]
     end
 
+
+    # =======================================================
+    #       render sugoroku board to terminal interface
+    # =======================================================
     # test ID 4
     def display_sugoroku_board
         puts @vertical_border
@@ -27,12 +30,15 @@ class SugorokuBoard
         puts @vertical_border
     end
 
+    # ================================================================
+    #       places player's icon onto current position on board
+    # ================================================================
     #test ID The 15
     def display_position_on_board(number)
 
         case number
         when 0
-            @one_to_ten[0] = "   💃|"
+            @one_to_ten[0] = "   💃|" 
             display_sugoroku_board
         when 1..10
             @one_to_ten[number] = "  💃  |"
@@ -59,5 +65,3 @@ class SugorokuBoard
 
 end
 
-# test = SugorokuBoard.new
-# test.display_position_on_board

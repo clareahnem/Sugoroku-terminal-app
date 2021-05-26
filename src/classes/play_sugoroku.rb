@@ -9,6 +9,9 @@ class Play
         @score = 0
     end
 
+    # ===============================================
+    #      method to move player's position
+    # ===============================================
     # test ID 7
     def move(number)
         @position += number
@@ -19,25 +22,42 @@ class Play
         landed_on_which_panel(@position)
     end
 
+
+    # ========================================================================================
+    #       outputs different message according to color of panel and adds appropriate score
+    # ========================================================================================
+
     def landed_on_which_panel(position)
         case @position
-        when  3, 6, 11, 18, 21, 26, 27, 32
+        when  3, 6, 11, 18, 21, 26, 27, 32 
+            # =======================
+            #       green panels
+            # =======================
             flash_text("Hooray! You have landed on a green panel! You gained 300pts!".colorize(:green))
             @score += 300
-        when  4, 14, 17, 20, 23, 29
+        when  4, 14, 17, 20, 23, 29 
+            # =======================
+            #       red panels
+            # =======================
             flash_text("Oh no! You have landed on a red panel! You lost 100pts".colorize(:red))
             @score -= 100
         when  9, 16, 31
-            if @score < 0
+            # ==========================================
+            #       blue panels. Activates Bonus round
+            # ==========================================
+            if @score < 0 # bad message if player's score is currently negative
                 flash_text("OH NO!! You've landed on a blue panel with a negative score! Your score will multiply by number rolled on dice!".colorize(:blue))
                 bonus_panel
-            elsif @score == 0
+            elsif @score == 0 # no emotion message if player's score is currently zero
                 "You've landed on the blue multiply panel. Since your score is 0, looks like nothing will happen.".colorize(:blue)
-            else
+            else # excited message if player's score is currently positive
                 flash_text("WOWW!! You've landed on a blue panel! Roll the dice to multiply your score!".colorize(:blue))
                 bonus_panel
             end
         else
+            # =============================
+            #     standard panels or Goal
+            # =============================
             if position < 32
                 flash_text("You've landed on a standard panel. You gained 100pts!")
                 @score += 100
@@ -48,6 +68,9 @@ class Play
         end
     end
 
+    # ===================================================
+    #       bonus round if player lands on blue panel
+    # ===================================================
     def bonus_panel
         dice = roll_dice
         if dice == 1
@@ -60,11 +83,18 @@ class Play
         @score *= dice
     end
 
+    # =================================================================
+    #       rendering table with name, position and score
+    # =================================================================
     def display_score
         current_score_table = TTY::Table.new(["Name", "Total Steps Taken","Current Score"], [[@name, "#{@position}/33", @score]]) 
         puts current_score_table.render(:unicode, resize: true, width: 50)
     end
 
+
+    # ================================================================
+    #       saving user's final score to ranking.txt
+    # ================================================================
     #test ID 13
     def save_data(name, score)
         prompt = TTY::Prompt.new

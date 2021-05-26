@@ -14,11 +14,12 @@ loading_spinner(1.5, "")
 hold_and_clear_terminal(0)
 puts "Welcome to Command Line".colorize(:red)
 title_art
-# menu_select
 
 case menu_select
+    # ===============================
+    #       case 1: HOW TO PLAY
+    # ===============================
     when 1 
-        # when user selects "How to play"
         hold_and_clear_terminal(0.3)
         # print title to screen
         how_to_title
@@ -28,11 +29,14 @@ case menu_select
         # then display options for next step
         back_to_menu_or_exit
         hold_and_clear_terminal(0.3)
+
+    # ===============================
+    #       case 2: PLAY GAME
+    # ===============================
     when 2
-        # when user selects "Play Sugoroku"
         hold_and_clear_terminal(0.5)
         start_title
-        # get name from user. raise error if name is empty
+        # get name from user.
         username = get_name
         loading_spinner(1.5, "")
 
@@ -50,8 +54,11 @@ case menu_select
             sugoroku_loop_running = play_again_or_not
         end
         hold_and_clear_terminal(0.3)
+    
+    # ===============================
+    #       case 3: VIEW RANKING
+    # ===============================
     when 3
-        # when user selects "View Ranking Board"
         loading_spinner(1.5, "")
         hold_and_clear_terminal(0)
         # display ranking title
@@ -61,8 +68,11 @@ case menu_select
         # then display option for next step
         back_to_menu_or_exit
         hold_and_clear_terminal(0.3)
+
+    # ===============================
+    #       case 4: EXIT PROGRAM
+    # ===============================
     when 4
-        # when user selects "Exit Program"
         exit_program
     else
         "Invalid Input. Please Try Again"
