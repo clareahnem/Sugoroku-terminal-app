@@ -154,12 +154,14 @@ end
 
 ### Implementation Plan
 ***Trello***
+![Trello board for planning](./docs/trello-board.png)
 Planning the Creation process of this application was mostly completed using Trello.
 Here is the link: https://trello.com/b/ju8bPY0B/terminal-app-sugoroku
 
 I have added appropriate labels for each task to indicate whether it is a Donut task (Core of Application. Must be completed for Application to be a Minimum Viable Product) or a Sprinkle task (Decorative. Can be added but Application can also run wuthout it). More labels were created to indicate the difficulty of task so that I can effectively manage time. 
 
 ***Manual Testing using Excel***
+![manual testing excel page](./docs/manual-testing.png)
 During the coding process I have also used an excel sheet to manually test my code. 
 Here is the link: https://docs.google.com/spreadsheets/d/1Wi38tJLZNAkXqrJqyeeonaHfczbvBRVzld4yyUN3Eac/edit?usp=sharing 
 
