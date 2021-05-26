@@ -90,22 +90,21 @@ def display_rankboard
         puts "failed to load file"
     else 
         ranking = hash.map { |k,v| [k, v.to_i]}.sort_by {|key, value| value}.reverse
+        # get rid of ranks 101 and over since we only need top 100
+        top_hundred = ranking.slice(0, 100)
+
         # then convert this data into tty table
-        rankboard_table(ranking)
+        rankboard_table(top_hundred)
     end
 end
 
-def rankboard_table(ranking)
-    
+def rankboard_table(ranks)
+
     i = 1
-    ranking.each do |one_data|
+    ranks.each do |one_data|
         one_data.unshift i
         i += 1
-        if i == 100
-            break
-        end
     end
-
     table = TTY::Table.new(["Rank","Name","Score"], ranking)
     puts table.render(:unicode)
 end
