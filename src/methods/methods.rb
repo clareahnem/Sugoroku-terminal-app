@@ -92,20 +92,19 @@ def display_rankboard
         ranking = hash.map { |k,v| [k, v.to_i]}.sort_by {|key, value| value}.reverse
         # get rid of ranks 101 and over since we only need top 100
         top_hundred = ranking.slice(0, 100)
-
         # then convert this data into tty table
         rankboard_table(top_hundred)
     end
 end
 
 def rankboard_table(ranks)
-
+    # push rank number to each child array
     i = 1
     ranks.each do |one_data|
         one_data.unshift i
         i += 1
     end
-    table = TTY::Table.new(["Rank","Name","Score"], ranking)
+    table = TTY::Table.new(["Rank","Name","Score"], ranks)
     puts table.render(:unicode)
 end
 
