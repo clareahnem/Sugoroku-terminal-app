@@ -45,7 +45,7 @@ end
 # ==============================================
 #       methods for PLAY SUGOROKU feature
 # ==============================================
-
+# test ID 9
 def get_name
     begin
         puts "Choose your name:"
