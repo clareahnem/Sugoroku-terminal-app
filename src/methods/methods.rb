@@ -114,6 +114,7 @@ def display_rankboard
     else 
         ranking = hash.map { |k,v| [k, v.to_i]}.sort_by {|key, value| value}.reverse
         # get rid of ranks 101 and over since we only need top 100
+        # test ID 20/21
         top_hundred = ranking.slice(0, 100)
         # then convert this data into tty table
         rankboard_table(top_hundred)

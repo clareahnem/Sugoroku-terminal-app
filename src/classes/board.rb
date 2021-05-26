@@ -15,7 +15,7 @@ class SugorokuBoard
     # =======================================================
     #       render sugoroku board to terminal interface
     # =======================================================
-    # test ID 4
+    # test ID 22
     def display_sugoroku_board
         puts @vertical_border
         @one_to_ten.each {|item| print item}
@@ -33,7 +33,7 @@ class SugorokuBoard
     # ================================================================
     #       places player's icon onto current position on board
     # ================================================================
-    #test ID The 15
+    #test ID The 15/23
     def display_position_on_board(number)
 
         case number
