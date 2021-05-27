@@ -6,9 +6,9 @@
 https://github.com/clareahnem/Sugoroku-terminal-app
 ## How to Use this Application
 
-To start this application on your computer, please download the zip file from this GitHub repository. All of the files required for the application to run will be stored in src/ directory, hence from your root directory move into the src directory by typing `cd src`. Once you are in the correct directory, type `./Terminal_Sugoroku.sh` on your command line to start the application. 
+To start this application on your computer, please download the zip file from this GitHub repository. All of the files required for the application to run will be stored in src/ directory, hence from your root directory move into the src directory by typing `cd src`. Once you are in the correct directory, type `./Terminal_Sugoroku.sh` on your command line to start the application. You can also read more information about how to run the app by using the help flag; `ruby index.rb -h` ot `ruby index.rb --help`. 
 
-Since this application was built using Ruby language, you must make sure that you have ruby installed on your computer. You can do so by typing in `ruby -v` on your terminal, or from the `src` directory containing this app type `ruby index.rb -i` to see what version of ruby you are running on. This app was build on ruby version 2.7.1 hence you may run into some issues if you are using a much older version of ruby. 
+Since this application was built using Ruby language, you must make sure that you have ruby installed on your computer. You can do so by typing in `ruby -v` on your terminal, or from the `src` directory containing this app type `ruby index.rb -i` or `ruby index.rb --info` to see what version of ruby you are running on. This app was build on ruby version 2.7.1 hence you may run into some issues if you are using a much older version of ruby. 
 
 This application also depend on several ruby gems. If you are a mac user and have ruby installed, you will be able to download ruby gems automatically. However, for any other computer systems make sure that you have RubyGems downloaded, so that you can install the following dependencies. Instructions on how to download RubyGems are listed on the Rubygems website: https://rubygems.org/pages/download
 
